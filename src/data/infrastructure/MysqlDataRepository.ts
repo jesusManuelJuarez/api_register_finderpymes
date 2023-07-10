@@ -107,7 +107,5 @@ export class MysqlDataRepository implements DataRepository {
     } catch (error) {
       return false; // Error en la eliminación
     }
-  }
-
-  
+  } 
 }
