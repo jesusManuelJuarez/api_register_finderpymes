@@ -1,0 +1,282 @@
+openapi: 3.0.0
+info:
+  title: API REGISTER PYMES 
+  version: 1.0.0
+  description: Documentación de la API DE REGISTER PYMES
+servers:
+  - url: http://localhost:3000
+paths:
+  /data:
+    get:
+      summary: Obtiene todos los datos
+      description: Obtiene una lista de todos los datos registrados.
+      responses:
+        '200':
+          description: Lista de datos
+    post:
+      summary: Crea un nuevo dato
+      description: Crea un nuevo dato con los datos proporcionados.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Data'
+      responses:
+        '201':
+          description: Dato creado exitosamente
+        '400':
+          description: Error en la creación del dato
+  /data/{idData}:
+    get:
+      summary: Obtiene un dato por ID
+      description: Obtiene un dato específico según su ID.
+      parameters:
+        - in: path
+          name: idData
+          description: ID del dato a obtener
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Dato encontrado
+        '404':
+          description: Dato no encontrado
+    put:
+      summary: Actualiza un dato por ID
+      description: Actualiza un dato específico según su ID.
+      parameters:
+        - in: path
+          name: idData
+          description: ID del dato a actualizar
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Data'
+      responses:
+        '200':
+          description: Dato actualizado exitosamente
+        '400':
+          description: Error en la actualización del dato
+        '404':
+          description: Dato no encontrado
+    delete:
+      summary: Elimina un dato por ID
+      description: Elimina un dato específico según su ID.
+      parameters:
+        - in: path
+          name: idData
+          description: ID del dato a eliminar
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Dato eliminado exitosamente
+        '404':
+          description: Dato no encontrado
+  /fiscal:
+    get:
+      summary: Obtiene todos los datos fiscales
+      description: Obtiene una lista de todos los datos fiscales registrados.
+      responses:
+        '200':
+          description: Lista de datos fiscales
+    post:
+      summary: Crea un nuevo dato fiscal
+      description: Crea un nuevo dato fiscal con los datos proporcionados.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Fiscal'
+      responses:
+        '201':
+          description: Dato fiscal creado exitosamente
+        '400':
+          description: Error en la creación del dato fiscal
+  /fiscal/{idFiscal}:
+    get:
+      summary: Obtiene un dato fiscal por ID
+      description: Obtiene un dato fiscal específico según su ID.
+      parameters:
+        - in: path
+          name: idFiscal
+          description: ID del dato fiscal a obtener
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Dato fiscal encontrado
+        '404':
+          description: Dato fiscal no encontrado
+    put:
+      summary: Actualiza un dato fiscal por ID
+      description: Actualiza un dato fiscal específico según su ID.
+      parameters:
+        - in: path
+          name: idFiscal
+          description: ID del dato fiscal a actualizar
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Fiscal'
+      responses:
+        '200':
+          description: Dato fiscal actualizado exitosamente
+        '400':
+          description: Error en la actualización del dato fiscal
+        '404':
+          description: Dato fiscal no encontrado
+    delete:
+      summary: Elimina un dato fiscal por ID
+      description: Elimina un dato fiscal específico según su ID.
+      parameters:
+        - in: path
+          name: idFiscal
+          description: ID del dato fiscal a eliminar
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Dato fiscal eliminado exitosamente
+        '404':
+          description: Dato fiscal no encontrado
+  /address:
+    get:
+      summary: Obtiene todos los datos de dirección
+      description: Obtiene una lista de todos los datos de dirección registrados.
+      responses:
+        '200':
+          description: Lista de datos de dirección
+    post:
+      summary: Crea un nuevo dato de dirección
+      description: Crea un nuevo dato de dirección con los datos proporcionados.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+      responses:
+        '201':
+          description: Dato de dirección creado exitosamente
+        '400':
+          description: Error en la creación del dato de dirección
+  /address/{idAddress}:
+    get:
+      summary: Obtiene un dato de dirección por ID
+      description: Obtiene un dato de dirección específico según su ID.
+      parameters:
+        - in: path
+          name: idAddress
+          description: ID del dato de dirección a obtener
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Dato de dirección encontrado
+        '404':
+          description: Dato de dirección no encontrado
+    put:
+      summary: Actualiza un dato de dirección por ID
+      description: Actualiza un dato de dirección específico según su ID.
+      parameters:
+        - in: path
+          name: idAddress
+          description: ID del dato de dirección a actualizar
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+      responses:
+        '200':
+          description: Dato de dirección actualizado exitosamente
+        '400':
+          description: Error en la actualización del dato de dirección
+        '404':
+          description: Dato de dirección no encontrado
+    delete:
+      summary: Elimina un dato de dirección por ID
+      description: Elimina un dato de dirección específico según su ID.
+      parameters:
+        - in: path
+          name: idAddress
+          description: ID del dato de dirección a eliminar
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Dato de dirección eliminado exitosamente
+        '404':
+          description: Dato de dirección no encontrado
+components:
+  schemas:
+    Data:
+      type: object
+      properties:
+        idData:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        website:
+          type: string
+        idUser:
+          type: integer
+    Address:
+      type: object
+      properties:
+        idAddress:
+          type: integer
+        city:
+          type: string
+        longitud:
+          type: string
+        latitud:
+          type: string
+        district:
+          type: string
+        postalCode:
+          type: string
+        cell:
+          type: string
+        idData:
+          type: integer
+    Fiscal:
+      type: object
+      properties:
+        idFiscal:
+          type: integer
+        rfc:
+          type: string
+        regimeT:
+          type: string
+        fiscalAddress:
+          type: string
+        idData:
+          type: integer
